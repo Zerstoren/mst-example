@@ -1,0 +1,12 @@
+.posts-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .post-item {
+    font-size: 14px;
+    width: 356px;
+    border: 2px solid #fff;
+    padding: 6px;
+    margin: 4px;
+  }
+}

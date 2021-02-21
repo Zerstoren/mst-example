@@ -1,0 +1,22 @@
+.users-items {
+  display: flex;
+  flex-wrap: wrap;
+
+  .user-card-item {
+    font-size: 14px;
+    width: 228px;
+    border: 2px solid #fff;
+    padding: 6px;
+    margin: 4px;
+
+    &.active {
+      background-color: #fff;
+    }
+  }
+}
+
+.login-form {
+  input {
+    width: 200px;
+  }
+}

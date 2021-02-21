@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  .left-side {
+    display: flex;
+    & > div {
+      background-color: rgb(230, 183, 140);
+      padding: 10px;
+      margin: 0 10px;
+      font-size: 22px;
+      cursor: pointer;
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+
+    & > .active {
+      a {
+        color: #009900;
+        cursor: default;
+      }
+    }
+
+    & > .disabled {
+      color: #666;
+      cursor: default;
+    }
+  }
+
+  .right-side {
+    display: flex;
+    justify-content: flex-end;
+
+    & > .user {
+      cursor: default;
+    }
+    
+    & > div {
+      background-color: rgb(230, 183, 140);
+      padding: 10px;
+      margin: 0 10px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    & > .active {
+      color: #009900;
+    }
+  }
+}

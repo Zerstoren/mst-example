@@ -1,25 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from "react-router-dom";
+import UsersComponent from './components/Users/Users.component';
+import PostsComponent from './components/Posts/Posts.component';
+import FormComponent from './components/Form/Form.component';
+import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Route exact={true} path="/" component={UsersComponent} />
+      <Route exact={true} path="/posts" component={PostsComponent} />
+      <Route exact={true} path="/form" component={FormComponent} />
+    </BrowserRouter>
   );
 }
 

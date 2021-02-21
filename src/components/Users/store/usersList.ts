@@ -1,4 +1,5 @@
 import { flow, Instance, types } from "mobx-state-tree";
+import makeInspectable from 'mobx-devtools-mst';
 import { useMemo } from "react";
 import User from "../../../shared/store/user/user";
 import { getAllUsers } from "../repository/users";
@@ -24,9 +25,15 @@ const UsersList = types.model("Users.List", {
 export type TUsersListInstance = Instance<typeof UsersList>;
 
 export const useAccessUsersListStore = () => {
-  return useMemo(() => UsersList.create({
-    users: []
-  }), []);
+  const store = useMemo(() => {
+    const tree = UsersList.create({
+      users: []
+    });
+    makeInspectable(tree);
+    return tree;
+  }, []);
+
+  return store;
 }
 
 export default UsersList;

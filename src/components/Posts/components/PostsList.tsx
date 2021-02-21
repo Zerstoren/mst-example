@@ -9,7 +9,7 @@ const PostsList = () => {
 
   return (
     <div className="posts-list">
-      {posts && posts.map((post) => <PostItem post={post} />)}
+      {posts && posts.map((post) => <PostItem key={post.id} post={post} />)}
     </div>
   );
 }

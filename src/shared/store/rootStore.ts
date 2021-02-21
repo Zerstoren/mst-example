@@ -1,4 +1,5 @@
 import { Instance, types } from 'mobx-state-tree';
+import makeInspectable from 'mobx-devtools-mst';
 import Settings from './settings/settings';
 import User, { rootUserAction } from './user/user';
 
@@ -22,6 +23,8 @@ const rootStore: IRootStore = RootStore.create({
     lang: "en"
   }
 });
+
+makeInspectable(rootStore);
 
 const useRootStore = () : IRootStore => rootStore;
 

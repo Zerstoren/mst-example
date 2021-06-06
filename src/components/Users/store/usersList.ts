@@ -1,8 +1,8 @@
 import { flow, Instance, types } from "mobx-state-tree";
-import makeInspectable from 'mobx-devtools-mst';
-import { useMemo } from "react";
+import {useContext} from "react";
 import User from "../../../shared/store/user/user";
 import { getAllUsers } from "../repository/users";
+import {RootStoreContext} from "../../../store";
 
 const UsersList = types.model("Users.List", {
   users: types.array(User)
@@ -25,15 +25,7 @@ const UsersList = types.model("Users.List", {
 export type TUsersListInstance = Instance<typeof UsersList>;
 
 export const useAccessUsersListStore = () => {
-  const store = useMemo(() => {
-    const tree = UsersList.create({
-      users: []
-    });
-    makeInspectable(tree);
-    return tree;
-  }, []);
-
-  return store;
+  return useContext(RootStoreContext).usersList;
 }
 
 export default UsersList;

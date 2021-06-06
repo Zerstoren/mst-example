@@ -1,5 +1,4 @@
-import { useRootStore } from "../../../../store/rootStore";
-import { useAccessUserStore } from "../../../../store/user/access.user"
+import {useAccessUserBaseStore, useAccessUserStore} from "../../../../store/user/access.user"
 
 export const useGetLoginUserName = () => {
   const store = useAccessUserStore();
@@ -7,8 +6,8 @@ export const useGetLoginUserName = () => {
 }
 
 export const useUserLogout = () => {
-  const rootStore = useRootStore();
+  const userStore = useAccessUserBaseStore();
   return () => {
-    rootStore.setUser(null);
+    userStore.setUser(null);
   }
 }

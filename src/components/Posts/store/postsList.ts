@@ -1,8 +1,7 @@
 import { flow, types } from "mobx-state-tree";
-import makeInspectable from 'mobx-devtools-mst';
-import { useMemo } from "react";
 import { getAllPosts } from "../repository/posts";
 import PostItem from "./postItem";
+import {useRootStore} from "../../../store";
 
 const PostsList = types.model("PostsList", {
   posts: types.array(PostItem)
@@ -27,13 +26,7 @@ const PostsList = types.model("PostsList", {
 });
 
 export const useAccessPostsListStore = () => {
-  return useMemo(() => {
-    const tree = PostsList.create({
-      posts: []
-    });
-    makeInspectable(tree);
-    return tree;
-  }, []);
+  return useRootStore().postsList;
 };
 
 export default PostsList;

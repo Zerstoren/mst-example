@@ -1,6 +1,6 @@
 import { useEffect } from "react"
-import { useRootStore } from "../../../shared/store/rootStore";
 import { useAccessUsersListStore } from "../store/usersList";
+import {useAccessUserBaseStore} from "../../../shared/store/user/access.user";
 
 export const useGetUsersList = () => {
   const store = useAccessUsersListStore();
@@ -13,7 +13,7 @@ export const useGetUsersList = () => {
 }
 
 export const useLoginAction = () => {
-  const store = useRootStore();
+  const store = useAccessUserBaseStore();
 
   return (id: number) => {
     store.setUser(id);

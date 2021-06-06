@@ -7,7 +7,7 @@ const FormComponent = () => {
   const form = useAccessFormStore();
   const setId = (event: React.ChangeEvent<HTMLInputElement>) => form.setId(parseInt(event.target.value));
   const setName = (event: React.ChangeEvent<HTMLInputElement>) => form.setName(event.target.value);
-  
+
   return (
     <>
       <HeaderComponent />

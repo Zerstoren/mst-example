@@ -1,6 +1,6 @@
 import { types } from "mobx-state-tree";
-import makeInspectable from 'mobx-devtools-mst';
-import { useMemo } from "react";
+import {useContext} from "react";
+import {RootStoreContext} from "../../../store";
 
 const Form = types.model("Form", {
   id: types.optional(types.number, 0),
@@ -14,9 +14,8 @@ const Form = types.model("Form", {
   }
 }))
 
-const form = Form.create();
-makeInspectable(form);
-
-export const useAccessFormStore = () => useMemo(() => form, []);
+export const useAccessFormStore = () => {
+  return useContext(RootStoreContext).form;
+};
 
 export default Form;

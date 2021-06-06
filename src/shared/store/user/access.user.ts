@@ -1,5 +1,9 @@
-import { useRootStore } from "../rootStore"
+import {useRootStore} from "../../../store";
+
+export const useAccessUserBaseStore = () => {
+  return useRootStore().loginUser;
+}
 
 export const useAccessUserStore = () => {
-  return useRootStore().user;
+  return useRootStore().loginUser.user;
 }

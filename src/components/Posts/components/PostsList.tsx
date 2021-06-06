@@ -3,7 +3,6 @@ import React from "react";
 import { useGetUserPosts } from "../hooks/usePosts";
 import PostItem from "./PostItem";
 
-
 const PostsList = () => {
   const posts = useGetUserPosts();
 

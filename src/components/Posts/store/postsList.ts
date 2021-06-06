@@ -1,4 +1,4 @@
-import { flow, types } from "mobx-state-tree";
+import { flow, types, cast } from "mobx-state-tree";
 import { getAllPosts } from "../repository/posts";
 import PostItem from "./postItem";
 import {useRootStore} from "../../../store";
@@ -20,8 +20,14 @@ const PostsList = types.model("PostsList", {
     }
   });
 
+  const setLoginUser = flow(function* setLoginUser(userId: number) {
+    yield load();
+    self.posts = cast(self.posts.filter((post) => post.userId === userId));
+  });
+
   return {
-    load
+    load,
+    setLoginUser,
   };
 });
 
